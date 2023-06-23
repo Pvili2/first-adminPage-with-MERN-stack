@@ -52,4 +52,13 @@ const updateData = async (bodyData) => {
     console.log(data);
     return data;
 }
-export { getAllData, getData, createData, updateData };
+const deleteData = async (bodyData) => {
+    await fetch('http://127.0.0.1:3002/api/v1/teams/delete', {
+        method: "DELETE",
+        body: JSON.stringify(bodyData),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        },
+    })
+}
+export { getAllData, getData, createData, updateData, deleteData };

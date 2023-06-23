@@ -34,9 +34,10 @@ const updateData = async (req, res) => {
   }
 };
 const deleteData = async (req, res) => {
+  console.log(req.body);
   try {
-    await Teams.findByIdAndDelete(req.params.id, req.body);
-    res.status(501).json({ status: "Data deleted" });
+    await Teams.findOneAndDelete(req.body);
+    res.status(204).json({ status: "Data deleted" });
   } catch (error) {
     res.status(404).json({
       status: "Data delete error or id not found",
