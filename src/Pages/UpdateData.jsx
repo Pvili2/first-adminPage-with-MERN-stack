@@ -143,11 +143,3 @@ function CustomInput({ inputName }) {
         <TextField sx={{ width: 300, height: 30 }} label={inputName} name={inputName.toLowerCase()} variant="outlined" />
     )
 }
-function DataFound({ data }) {
-    return (
-        <div>
-            Data Found! <br />
-            <div>Name: {data["name"]}, Abbrevation: {data["abbreviation"]}, Foundation: {data["fundation"]}</div>
-        </div>
-    )
-}

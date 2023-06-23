@@ -50,7 +50,6 @@ export default function GetData() {
         }
         setTeams(response.data);
     }
-    // searchValue && [{index: 0, name: "aa", abbreviation: "a", fundation: 1200 }]!==teams &&setTeams([{index: 0, name: "aa", abbreviation: "a", fundation: 1200 }])
     useEffect(() => {
         try {
             if (searchValue.status === "OK") {
