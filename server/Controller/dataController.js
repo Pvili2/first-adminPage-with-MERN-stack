@@ -3,10 +3,9 @@ const Teams = require("../Model/dataModell");
 const getAllData = async (req, res) => {
   let allData = Teams.find();
 
-  if (!req.query.limit) {
-    allData = allData.limit(10);
-  } else {
+  if (req.query.limit) {
     allData = allData.limit(req.query.limit)
+
   }
 
   const data = await allData;

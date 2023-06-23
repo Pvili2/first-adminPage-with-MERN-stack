@@ -14,7 +14,7 @@ import search from "../images/search.png"
 import 'react-toastify/dist/ReactToastify.css';
 
 export async function loader() {
-    return defer({ teams: await getAllData() })
+    return defer({ teams: await getAllData(10) })
 }
 
 export async function action({ request }) {

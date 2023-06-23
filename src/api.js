@@ -1,6 +1,10 @@
 import axios from "axios";
-const getAllData = async () => {
-    const datas = await axios("http://127.0.0.1:3002/api/v1/teams", {
+const getAllData = async (limit) => {
+    let url = "http://127.0.0.1:3002/api/v1/teams";
+    if (limit) {
+        url += `?limit=${limit}`
+    }
+    const datas = await axios(url, {
         method: "GET",
     });
 

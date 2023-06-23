@@ -13,7 +13,7 @@ import GetData, {
 } from "./Pages/GetData";
 import CreateData, { action as CreateDataAction } from "./Pages/CreateData";
 import UpdateData, { action as UpdateDataAction } from "./Pages/UpdateData";
-import DeleteData from "./Pages/DeleteData";
+import DeleteData, { loader as DeleteDataLoader } from "./Pages/DeleteData";
 import IndexLayout from "./Layouts/IndexLayout";
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -32,7 +32,7 @@ const router = createBrowserRouter(
       />
       <Route path="/createItems" element={<CreateData />} action={CreateDataAction} />
       <Route path="/updateItems" element={<UpdateData />} action={UpdateDataAction} />
-      <Route path="/deleteItems" element={<DeleteData />} />
+      <Route path="/deleteItems" element={<DeleteData />} loader={DeleteDataLoader} />
     </Route>
   )
 );
