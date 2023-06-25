@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { Form } from "react-router-dom";
 import { getAllData, getData, deleteData } from "../api"
 import { useLoaderData, useActionData } from "react-router"
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
+import Swal from 'sweetalert2'
 import search from "../images/search.png"
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -37,9 +38,30 @@ export default function DeleteData() {
     }
 
     useEffect(() => {
+
         if (specificData) {
-            deleteData(specificData)
+            Swal.fire({
+                title: `Biztosan törölni szeretnéd a ${specificData.name} nevű csapatot?`,
+                showDenyButton: true,
+                showCancelButton: true,
+                confirmButtonText: 'Delete',
+                denyButtonText: `Nevermind`,
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    deleteData(specificData).then(() => {
+                        toast.success("Sikeres törlés! ❌")
+                    })
+                }
+            })
+
+        } else {
+            if (specificData === null) {
+                toast.info("Nem található ilyen csapat az adatbázisban!")
+            }
         }
+
+
     }, [specificData])
     return (
         <div className="getData">

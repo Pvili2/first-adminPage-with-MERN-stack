@@ -9,6 +9,8 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import Box from "@mui/material/Box";
+import Slider from "@mui/material/Slider";
 import "../CSS/IndexLayout.css";
 import search from "../images/search.png"
 import 'react-toastify/dist/ReactToastify.css';
@@ -76,6 +78,9 @@ export default function GetData() {
                 <input className="searchTerm" type="text" disabled={searchDis} name="search" placeholder="Search..." />
                 <button className="searchButton" type="submit"><i className="fa fa-search"><img width={30} src={search} alt="search" /></i></button>
             </Form>
+            <Box sx={{ width: 300 }}>
+                <Slider sx={{ color: "black" }} value={[20, 40]} valueLabelDisplay="auto" />
+            </Box>
             <DataTable data={teams} />
         </div>
     )
