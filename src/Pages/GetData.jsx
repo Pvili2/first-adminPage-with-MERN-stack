@@ -78,9 +78,10 @@ export default function GetData() {
                 <input className="searchTerm" type="text" disabled={searchDis} name="search" placeholder="Search..." />
                 <button className="searchButton" type="submit"><i className="fa fa-search"><img width={30} src={search} alt="search" /></i></button>
             </Form>
-            <Box sx={{ width: 300 }}>
+            {/* <Box className="rangeInput" sx={{ width: 630 }}>
+                <span>Foundation: </span>
                 <Slider sx={{ color: "black" }} value={[20, 40]} valueLabelDisplay="auto" />
-            </Box>
+            </Box> */}
             <DataTable data={teams} />
         </div>
     )
